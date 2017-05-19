@@ -1,0 +1,36 @@
+##OpenGL GLIB
+Perspective 70
+
+Vertex   texture.vert
+Fragment texture.frag
+Program  Texture  TexUnit 6
+
+Texture2D  6  cubeRight.bmp
+QuadYZ 5. 5. 10 10
+Texture2D  6  cubeLeft.bmp
+QuadYZ -5. 5. 10 10
+Texture2D  6  cubeTop.bmp
+QuadXZ 5. 5. 10 10
+Texture2D  6  cubeGround.bmp
+QuadXZ -5. 5. 10 10
+Texture2D  6  cubeFront.bmp
+QuadXY 5. 5. 10 10
+Texture2D  6  cubeBack.bmp
+QuadXY -5. 5. 10 10
+
+
+
+CubeMap 6 cubeRight.bmp cubeLeft.bmp cubeTop.bmp cubeGround.bmp cubeFront.bmp cubeBack.bmp
+CubeMap 7 cubeRight.bmp cubeLeft.bmp cubeTop.bmp cubeGround.bmp cubeFront.bmp cubeBack.bmp
+
+Vertex   water.vert
+Fragment water.frag
+Program  Water  uReflectUnit 6  uRefractUnit 7  \
+			  	uTimeScale <0. 1. 20.>			\
+		      	uEta  <.1 0.6 5.>  				\
+		       	uMix <0. 0.4 1.>				\
+		       	uWaterHeight <-5. 0. 5.>		\
+		       	uNumWaves <0. 4. 4.>			\
+		       	uTemp <-1. 0.5 2.>							
+
+QuadXZ  0.  5.  500 500

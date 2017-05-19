@@ -1,0 +1,3 @@
+
+0(33) : error C0000: syntax error, unexpected floating point constant, expecting ',' or ')' at token "<float-const>"
+

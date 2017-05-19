@@ -1,0 +1,8 @@
+
+0(28) : error C1008: undefined variable "waveEqua"
+0(29) : error C1008: undefined variable "waveEqua"
+0(44) : error C1008: undefined variable "DxEqua"
+0(45) : error C1008: undefined variable "DxEqua"
+0(53) : error C1008: undefined variable "DzEqua"
+0(54) : error C1008: undefined variable "DzEqua"
+
