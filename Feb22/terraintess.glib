@@ -1,0 +1,35 @@
+##OpenGL GLIB
+Perspective 70
+LookAt  0 0 2  0 0 0  0 1 0
+
+Texture2D 6 or.big.tex
+
+Vertex         terraintess.vert
+TessControl    terraintess.tcs
+TessEvaluation terraintess.tes
+Geometry       terraintess.geom
+Fragment       terraintess.frag
+Program TerrainTess				\
+	uExag   <0. 10. 50.>			\
+	uUsePowerOfTwo <false>		\
+	uDetail <1. 20. 50.>			\
+	uShrink <0. 1. 1.>			\
+	uLightX <-10.  0. 10.0>		\
+	uLightY <-10. 10. 10.0>		\
+	uLightZ <0. 10. 200.0>		\
+	uColor  {.60, .60 .1, 1. }		\
+	uBumpHgtUnit 6				\
+	uDispHgtUnit 6				\
+	uUseColor <false>			\
+	uLevel1 <0. 250. 600.>		\
+	uLevel2 <800. 1000. 3000.>	\
+	uTol <0. 200. 500.>
+
+NumPatchVertices 4
+
+glBegin gl_patches
+        glVertex -1.2569 -1. 0. 1.	# sw
+        glVertex  1.2569 -1. 0. 1.	# se
+        glVertex -1.2569  1. 0. 1.	# nw
+        glVertex  1.2569  1. 0. 1.	# ne
+glEnd

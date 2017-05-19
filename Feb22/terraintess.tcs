@@ -1,0 +1,69 @@
+#version 400 compatibility
+#extension GL_ARB_tessellation_shader : enable
+
+uniform bool  uUsePowerOfTwo;
+uniform float uDetail;
+
+in  vec2 vST[ ];
+in  vec3 vMCposition[ ];
+
+out vec2 tcST[ ];
+out vec3 tcMCposition[ ];
+
+layout( vertices = 4 )  out;
+
+float
+NearestPowerOfTwo( float f )
+{
+	if( uUsePowerOfTwo )
+	{
+		float y = log(f) / log(2.);
+		int iy = int( y + 0.50 );
+		return pow( 2., float(iy) );
+	}
+	else
+	{
+		return f;
+	}
+}
+
+
+void
+main( )
+{
+	gl_out[ gl_InvocationID ].gl_Position = gl_in[ gl_InvocationID ].gl_Position;
+
+	tcST[ gl_InvocationID ]         = vST[ gl_InvocationID ];
+	tcMCposition[ gl_InvocationID ] = vMCposition[ gl_InvocationID ];
+
+	vec4 sw = gl_in[ 0 ].gl_Position;
+	vec4 se = gl_in[ 1 ].gl_Position;
+	vec4 nw = gl_in[ 2 ].gl_Position;
+	vec4 ne = gl_in[ 3 ].gl_Position;
+
+	sw = gl_ModelViewProjectionMatrix * sw;
+	se = gl_ModelViewProjectionMatrix * se;
+	nw = gl_ModelViewProjectionMatrix * nw;
+	ne = gl_ModelViewProjectionMatrix * ne;
+
+	sw.xy /= sw.w;
+	se.xy /= se.w;
+	nw.xy /= nw.w;
+	ne.xy /= ne.w;
+
+	float ds = distance( sw.xy, se.xy );
+	float dn = distance( nw.xy, ne.xy );
+	float de = distance( se.xy, ne.xy );
+	float dw = distance( sw.xy, nw.xy );
+
+	float dmax = max(   max(  max( ds, dn ), de ), dw  );
+	ds = dn = de = dw = dmax;
+
+	gl_TessLevelOuter[0] = NearestPowerOfTwo( dw * uDetail );
+	gl_TessLevelOuter[1] = NearestPowerOfTwo( ds * uDetail );
+	gl_TessLevelOuter[2] = NearestPowerOfTwo( de * uDetail );
+	gl_TessLevelOuter[3] = NearestPowerOfTwo( dn * uDetail );
+
+	gl_TessLevelInner[0] = NearestPowerOfTwo( dmax * uDetail );
+	gl_TessLevelInner[1] = NearestPowerOfTwo( dmax * uDetail );
+}

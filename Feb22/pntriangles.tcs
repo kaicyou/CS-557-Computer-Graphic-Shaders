@@ -1,0 +1,22 @@
+#version 400 compatibility
+#extension GL_ARB_tessellation_shader : enable
+
+uniform int   uOuter, uInner;
+uniform float uScale;
+
+layout( vertices = 3 )  out;
+
+in  vec3 vNormal[ ];
+out vec3 tcNormals[ ];
+
+void
+main( )
+{
+	tcNormals[ gl_InvocationID ] = vNormal[ gl_InvocationID ];
+	gl_out[ gl_InvocationID ].gl_Position = gl_in[ gl_InvocationID ].gl_Position;
+
+	gl_TessLevelOuter[0] = uScale * float(uOuter);
+	gl_TessLevelOuter[1] = uScale * float(uOuter);
+	gl_TessLevelOuter[2] = uScale * float(uOuter);
+	gl_TessLevelInner[0] = uScale * float(uInner);
+}

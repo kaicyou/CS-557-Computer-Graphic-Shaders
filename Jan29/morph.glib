@@ -1,0 +1,20 @@
+##OpenGL GLIB
+Perspective 70
+LookAt 0 0 3  0 0 0  0 1 0
+
+Texture2D 6 worldtex.bmp
+
+Vertex   morph.vert
+Fragment morph.frag
+Program Morph	uWorldTexUnit 6						\
+			uUseTex <false>						\
+			uOffsetS <0. 0. 1.>  uOffsetT <0. 1. 1.> 	\
+			uDensity <0. 0.30 1.>					\
+			uFrequency < 1. 10. 50>				\
+			uTol <0. 0. .3>						\
+			uBlend <0. 0. .9999>					\
+			uBackColor {1. 1. 1.}
+
+Color  1. .3 0.
+Sphere 1. 60 60
+ 

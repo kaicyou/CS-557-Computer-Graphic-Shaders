@@ -1,0 +1,20 @@
+##OpenGL GLIB
+Perspective 70
+LookAt 0 0 6  0 0 0  0 1 0
+
+Vertex         pntriangles.vert
+Fragment       pntriangles.frag
+TessControl    pntriangles.tcs
+TessEvaluation pntriangles.tes
+Geometry       pntriangles.geom
+Program PnTriangles 	uScale <.1 1. 10.>			\
+				uOuter <1 1 10>				\
+				uInner <1 1 20>				\
+				uShrink <0. 1. 1.>			\
+				uLightX <-20.  5. 20.>		\
+				uLightY <-20. 10. 20.>		\
+				uLightZ <-20. 10. 20.>
+
+NumPatchVertices 3
+
+ObjPatch deer.obj

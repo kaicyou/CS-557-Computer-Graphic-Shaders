@@ -1,0 +1,14 @@
+##OpenGL GLIB
+LookAt 0 0 6  0 0 0  0 1 0
+Perspective 90
+
+Vertex   cowmorph.vert
+Fragment cowmorph.frag
+Program  CowMorph	uUseTimer <false>		\
+				uCube <false>			\
+				uBlend <0. 0. 1.>
+
+Color 1. .8 0.
+Obj cow.obj
+#Obj deer.obj
+#Obj Predator.OBJ

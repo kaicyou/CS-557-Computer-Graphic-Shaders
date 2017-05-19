@@ -1,0 +1,39 @@
+#version 400 compatibility
+#extension GL_ARB_tessellation_shader : enable
+
+uniform float		uExag;
+uniform sampler2D		uDispHgtUnit;
+
+in vec2 tcST[ ];
+in vec3 tcMCposition[ ];
+
+out vec2 teST;
+out vec3 teMCposition;
+
+const float LNGMIN = -579240./2.;
+const float LNGMAX =  579240./2.;
+const float LATMIN = -419949./2.;
+const float LATMAX =  419949./2.;
+
+layout( quads, equal_spacing, ccw )  in;
+
+void
+main( )
+{
+	vec2 sw = gl_in[ 0 ].gl_Position.xy;
+	vec2 se = gl_in[ 1 ].gl_Position.xy;
+	vec2 nw = gl_in[ 2 ].gl_Position.xy;
+	vec2 ne = gl_in[ 3 ].gl_Position.xy;
+
+	float u = gl_TessCoord.x;
+	float v = gl_TessCoord.y;
+
+	teMCposition = (1.-u)*(1.-v)*tcMCposition[0]  +  u*(1.-v)*tcMCposition[1]  +  (1.-u)*v*tcMCposition[2]  +  u*v*tcMCposition[3];
+
+	teST = (1.-u)*(1.-v)*tcST[0]  +  u*(1.-v)*tcST[1]  +  (1.-u)*v*tcST[2]  +  u*v*tcST[3];
+
+	vec2 xy = (1.-u)*(1.-v)*sw  +  u*(1.-v)*se  +  (1.-u)*v*nw  +  u*v*ne;
+	float zFactor = ( LATMAX - LATMIN );
+	float z = uExag * texture( uDispHgtUnit, teST ).r / zFactor;
+	gl_Position = gl_ModelViewMatrix * vec4( xy, z, 1. );
+}
