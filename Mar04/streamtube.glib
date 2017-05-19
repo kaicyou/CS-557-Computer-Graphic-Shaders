@@ -1,0 +1,15 @@
+##OpenGL GLIB
+Perspective 70
+LookAt  0 0 4  0 0 0  0 1 0
+
+Vertex   streamtube.vert
+Fragment streamtube.frag
+Program StreamTube							\
+	uScale <0.01 .25 1.>						\
+	uK <0. 2. 10.>  uN <0. 2. 10.>				\
+	uPeristaltic <0. 0. 2.>  uSpeed <1. 1. 5.>
+
+Color 1. 0. 0.
+Xarrow 200
+#Teapot
+#Obj deer.obj

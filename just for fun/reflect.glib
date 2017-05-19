@@ -1,0 +1,35 @@
+##OpenGL GLIB
+Perspective 70
+Lookat  0 0 3   0 0 0   0 1 0
+
+Vertex   texture.vert
+Fragment texture.frag
+Program  Texture  TexUnit 6
+
+Texture2D  6  nvposx.bmp
+QuadYZ 5. 5. 10 10
+Texture2D  6  nvnegx.bmp
+QuadYZ -5. 5. 10 10
+Texture2D  6  nvposy.bmp
+QuadXZ 5. 5. 10 10
+Texture2D  6  nvnegy.bmp
+QuadXZ -5. 5. 10 10
+Texture2D  6  nvposz.bmp
+QuadXY 5. 5. 10 10
+Texture2D  6  nvnegz.bmp
+QuadXY -5. 5. 10 10
+
+
+
+CubeMap 6 nvposx.bmp nvnegx.bmp  nvposy.bmp nvnegy.bmp   nvposz.bmp nvnegz.bmp
+
+Vertex   reflect.vert
+Fragment reflect.frag
+Program  Reflect  uUseNormalInterpolation <false>  \
+			uNoiseAmp <0. 0. 5.>			\
+            uNoiseFreq <0. 1. 10.>			\
+            uColor {1. 1. 0. 1.}		\
+			  uReflectUnit 6
+
+Obj  deer.obj
+ 

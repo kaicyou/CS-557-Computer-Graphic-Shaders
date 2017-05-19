@@ -1,0 +1,21 @@
+##OpenGL GLIB
+Perspective 70
+#LookAt  0 0 5  0 0 0  0 1 0
+
+PointSizeMode 1
+
+Texture3D 5 vis3dtexture.tex
+
+Vertex   probe.vert
+Fragment probe.frag
+Program Probe						\
+	TexUnit 5						\
+	uMin <0. 0. 100>				\
+	uMax < 0. 150. 150.>				\
+	uTol <0. 5. 5.>					\
+
+
+Clamp
+#Teapot
+#Torus
+Obj deer.obj

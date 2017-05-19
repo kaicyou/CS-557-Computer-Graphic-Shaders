@@ -1,0 +1,13 @@
+##OpenGL GLIB
+Ortho -1. 1.  -1. 1.
+LookAt  0 0 3  0 0 0  0 1 0
+
+Texture2D 5 whitenoisetexture2d.tex
+Texture2D 6 image.bmp
+
+Vertex   lic.vert
+Fragment lic.frag
+Program  Lic  pTexUnit 6  wnTexUnit 5		\
+		   uLength <0 1 50>			\
+		   uPhoto <false>
+QuadXY

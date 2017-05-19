@@ -1,0 +1,18 @@
+##OpenGL GLIB
+
+Perspective 70
+LookAt 0 0 3  0 0 0  0 1 0
+
+Vertex		final.vert
+Fragment	final.frag
+Program		final					        \
+			uA <0. 0.2 1.>				    \
+			uB <0. 10. 25.>				    \
+			uC <0. 10. 25.>				    \
+			uNoiseAmp <0. 0. 5.>			\
+            uNoiseFreq <0. 1. 10.>			\
+            uColor {0. .85 1. 1.}            
+
+
+QuadXY  -1.  1.  100 100
+QuadXY  1.  1.  100 100

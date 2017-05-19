@@ -1,0 +1,20 @@
+##OpenGL GLIB
+Perspective 70
+LookAt  0 0 3  0 0 0  0 1 0
+
+PointSizeMode 1
+
+Texture3D 5 vis3dtexture.tex
+
+Vertex   contours.vert
+Fragment contours.frag
+Program Contours					\
+	TexUnit 5						\
+	uDiscard <true>					\
+	uZ <-1. 0. 1.>					\
+	uTol <0. 5. 5.>					\
+	uMin <0. 0. 120>				\
+	uMax < 0. 120. 120.>
+
+Clamp
+QuadXY 0. 1 1

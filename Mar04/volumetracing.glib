@@ -1,0 +1,21 @@
+##OpenGL GLIB
+Perspective 70
+LookAt 0 0 3  0 0 0  0 1 0
+
+Texture3D 5 vis3dtexture.tex
+Clamp
+
+Vertex   volumetracing.vert
+Fragment volumetracing.frag
+Program VolumeTracing					\
+	TexUnit 5						\
+	uPerspective <true>				\
+	uSteps <1 100 1024>				\
+	uMin <0. 0. 120.>				\
+	uMax <0. 120. 120.>				\
+	uAmax <0. 0.5 1.>				\
+	uTol <0. 5. 5.>					\
+	uLighting <false>
+
+
+Sphere 1.8

@@ -1,0 +1,6 @@
+
+0(63) : error C1060: incompatible types in initialization
+0(63) : error C1056: invalid initialization
+0(66) : error C1060: incompatible types in initialization
+0(66) : error C1056: invalid initialization
+
