@@ -1,0 +1,3 @@
+
+0(8) : error C1008: undefined variable "uColor"
+

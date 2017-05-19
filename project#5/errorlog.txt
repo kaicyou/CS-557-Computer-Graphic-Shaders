@@ -1,0 +1,4 @@
+
+0(77) : error C1008: undefined variable "irgb"
+0(78) : error C1008: undefined variable "irgb"
+
