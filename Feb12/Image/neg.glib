@@ -1,0 +1,13 @@
+##OpenGL GLIB
+Perspective 70
+
+LookAt  0. 0. 6.  0. 0. 0.  0. 1. 0.
+
+Texture2D 5 image.bmp
+
+Vertex   neg.vert
+Fragment neg.frag
+Program  Neg  uT <0. 0. 1.>   uImageUnit 5
+
+
+QuadXY .2 5.

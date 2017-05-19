@@ -1,0 +1,17 @@
+##OpenGL GLIB
+Ortho  -3 3.  -3. 3.
+LookAt 0 0 2  0 0 0  0 1 0
+
+Texture2D 5 image.bmp
+Texture2D 6 before.bmp
+Texture2D 7 after.bmp
+
+Vertex   image.vert
+Fragment image.frag
+Program  Image								\
+			uAng <0. 45. 360.>				\
+			uT <0. 1. 5.>					\
+			ImageUnit 5  BeforeUnit 6  AfterUnit 7
+
+Scale 0.70
+QuadXY .2 5.

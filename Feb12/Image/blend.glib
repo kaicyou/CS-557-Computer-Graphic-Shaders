@@ -1,0 +1,13 @@
+##OpenGL GLIB
+
+Ortho -1. 1.  -1. 1.
+
+LookAt  0. 0. 2.  0. 0. 0.  0. 1. 0.
+
+Texture2D  6  kec.bmp
+
+Vertex   blend.vert
+Fragment blend.frag
+Program  Blend  uTexUnit 6    uA <0. .2 2.>
+
+QuadXY  0.1  1.

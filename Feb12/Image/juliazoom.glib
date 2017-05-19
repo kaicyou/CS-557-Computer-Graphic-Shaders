@@ -1,0 +1,18 @@
+##OpenGL GLIB
+Ortho -1.0 1.0  -1.0 1.0
+
+Vertex   juliazoom.vert
+Fragment juliazoom.frag
+Program  JuliaZoom							\
+		uDoublePrecision <false>				\
+		uZoom <0. 0. 10.>					\
+		uXcenter <-.2 -0.0802 0.>				\
+		uYcenter <-0.7 -0.5092 -0.5>				\
+		uCreal <-1. -0.3659 1.>    uCimag <-1. -0.6000 1.>		\
+		uMaxIterations <1 1200 2000>				\
+		uInnerColor  {0. 0. 1. 1.}				\
+		uOuterColor1 {1. 1. 0. 1.}				\
+		uOuterColor2 {1. 0. 0. 1.}
+
+
+QuadXY -.5 1.
