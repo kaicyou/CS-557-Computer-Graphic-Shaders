@@ -1,0 +1,15 @@
+##OpenGL GLIB
+LookAt 0 0 3  0 0 0  0 1 0
+Perspective 70
+Noise3D 128
+
+Vertex   cloud.vert
+Fragment cloud.frag
+Program  cloud					\
+		uSkyColor {0. 1. 1.}	\
+		uCloudColor {1. 1. 1.}	\
+		uBias <0. 0. 1.>		\
+		uScale <0. 0. 5.>		\
+		uLightPos {0. 0. 10.}		
+
+QuadXY  0.  1.  100 100

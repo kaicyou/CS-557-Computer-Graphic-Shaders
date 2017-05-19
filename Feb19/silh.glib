@@ -1,0 +1,17 @@
+##OpenGL GLIB
+Perspective 70
+LookAt 0 0 5  0 0 0  0 1 0
+Color 1. .5 0.
+PushMatrix
+Scale 0.995
+Obj deer.obj
+PopMatrix
+
+Vertex   silh.vert
+Geometry silh.geom
+Fragment silh.frag
+Program  Silhouette  uColor { 0. 1. 0. 1. }  uSilh <false>
+
+Scale 1.01 1.01 1.01
+LineWidth 2.
+ObjAdj deer.obj

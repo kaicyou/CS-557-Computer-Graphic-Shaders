@@ -1,0 +1,26 @@
+##OpenGL GLIB
+
+Perspective 90
+
+Vertex   cloud.vert
+Fragment cloud.frag
+Program  Cloud  								   \
+	uSkyColor {0. 0. 0.2 1.}   uCloudColor {0.3 0.3 0.3 1.} \
+	uScale <0. .1 .2>  uBias <0. .3 .6>
+
+QuadXY -10. 50.
+
+
+
+Vertex   rainbow.vert
+Fragment rainbow.frag
+Program  Rainbow uSunY <0. 1.5 10.>  uTol <0. .015 .030>  uMaxAlpha < 0. .25 1.>
+
+# plot as fragments in a quad:
+
+QuadXY -5. 5.
+#Teapot
+# plot as points in a point cloud
+#Translate 0. 0. -5.
+#Scale 5. 5. 1.
+#PointCloud 200 200 4

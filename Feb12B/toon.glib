@@ -1,0 +1,15 @@
+##OpenGL GLIB
+Ortho -5. 5.  -5. 5.
+LookAt 0 0 1  0 0 0  0 1 0
+
+Texture2D 5 kec.bmp
+
+Vertex   toon.vert
+Fragment toon.frag
+Program Toon					\
+		uMagTol   <0. 1. 1.>		\
+		uQuantize <5. 200. 200.>	\
+		ImageUnit 5
+
+
+QuadXY .2 5.

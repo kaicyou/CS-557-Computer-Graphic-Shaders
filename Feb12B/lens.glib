@@ -1,0 +1,39 @@
+##OpenGL GLIB
+Perspective 70
+LookAt 0. 0. 2.  0. 0. 0.  0. 1. 0.
+
+Vertex   texture.vert
+Fragment texture.frag
+Program  Texture  TexUnit 6
+
+Texture2D  6  nvposx.bmp
+QuadYZ 5. 5.
+
+Texture2D  6  nvnegx.bmp
+QuadYZ -5. 5.
+
+
+Texture2D  6  nvposy.bmp
+QuadXZ 5. 5.
+
+Texture2D  6  nvnegy.bmp
+QuadXZ -5. 5.
+
+
+Texture2D  6  nvposz.bmp
+QuadXY 5. 5.
+
+Texture2D  6  nvnegz.bmp
+QuadXY -5. 5.
+
+
+
+CubeMap 7 nvposx.bmp nvnegx.bmp  nvposy.bmp nvnegy.bmp   nvposz.bmp nvnegz.bmp
+
+Vertex   lens.vert
+Fragment lens.frag
+Program  Lens  RefractUnit 7		\
+		uR1 <-100. 40. 100.>  	\
+		uR2 <-100. 40. 100.>
+
+DiskXY  -2. 5.  120 10

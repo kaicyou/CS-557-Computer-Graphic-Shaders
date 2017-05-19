@@ -1,0 +1,5 @@
+
+0(37) : error C1008: undefined variable "NoiseAmp"
+0(42) : error C1008: undefined variable "Tol"
+0(42) : error C1008: undefined variable "Tol"
+

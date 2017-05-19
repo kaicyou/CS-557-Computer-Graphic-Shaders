@@ -1,0 +1,25 @@
+##OpenGL GLIB
+Perspective 70
+LookAt  0 0 3  0 0 0  0 1 0
+
+Vertex   hedgehog.vert
+Fragment hedgehog.frag
+Geometry hedgehog.geom
+Program  HedgeHog  	uDetail <0 0 4>		\
+				uLength <1 1 5>		\
+				uStep <.01 .1 1.>	\
+				uDroop <-1. 0. 1.>
+
+LineWidth 2.
+Color 1. 1. 0.
+Obj deer.obj
+#Teapot
+
+Vertex   shrink.vert
+Fragment shrink.frag
+Geometry shrink.geom
+Program  ShrinkTriangles  uShrink <0.05. 1. 1.>
+
+Color 1. .5 0.
+Obj deer.obj
+#Teapot
