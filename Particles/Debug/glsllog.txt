@@ -1,0 +1,19 @@
+
+0(2) : error C0201: unsupported version 440
+0(5) : warning C7508: extension ARB_compute_variable_group_size not supported
+0(8) : warning C7532: global type vec4 requires "#version 100" or later
+0(9) : warning C7532: layout qualifier 'binding' requires "#version 430" or later
+0(9) : warning C0000: ... or #extension GL_ARB_shader_storage_buffer_object : enable
+0(14) : warning C7532: layout qualifier 'binding' requires "#version 430" or later
+0(14) : warning C0000: ... or #extension GL_ARB_shader_storage_buffer_object : enable
+0(19) : warning C7532: layout qualifier 'binding' requires "#version 430" or later
+0(19) : warning C0000: ... or #extension GL_ARB_shader_storage_buffer_object : enable
+0(22) : warning C3013: input/output layout qualifiers supported above GL version 0
+0(26) : warning C7532: global type vec3 requires "#version 100" or later
+0(28) : warning C7532: global function reflect requires "#version 100" or later
+0(35) : warning C7532: global function normalize requires "#version 100" or later
+0(42) : warning C7532: global type float requires "#version 100" or later
+0(42) : warning C7532: global function length requires "#version 100" or later
+0(54) : warning C7532: global type uint requires "#version 130" or later
+0(54) : warning C0000: ... or #extension GL_EXT_gpu_shader4 : enable
+

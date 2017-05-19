@@ -1,0 +1,45 @@
+void
+Animate( )
+{
+	double time0, time1;
+
+	glutSetWindow( MainWindow );
+
+	if( ShowPerformance )
+	{
+		glFinish( );
+		time0 = omp_get_wtime( );
+	}
+
+	MyComputeShaderProgram->Use( );
+
+	//glDispatchCompute( NUM_PARTICLES  / WORK_GROUP_SIZE, 1,  1 );
+	glDispatchComputeGroupSize( NUM_PARTICLES  / WORK_GROUP_SIZE, 1,  1,    WORK_GROUP_SIZE, 1, 1 );
+
+	CheckGlErrors( "glDispatchCompute" );
+	glMemoryBarrier( GL_SHADER_STORAGE_BARRIER_BIT );
+	CheckGlErrors( "glMemoryBarrier" );
+
+#ifdef NOTDEF
+	glBindBuffer( GL_SHADER_STORAGE_BUFFER, posSSbo );
+	struct pos *points = (struct pos *) glMapBuffer( GL_SHADER_STORAGE_BUFFER, GL_READ_ONLY);
+	fprintf( stderr, "\n(0x%08x) After:\n", points );
+	for( int i = 0; i < 5; i++ )
+	{
+		fprintf( stderr, "%3d  %8.3f  %8.3f  %8.3f\n", i, points[ i ].x, points[ i ].y, points[ i ].z );
+	}
+	glUnmapBuffer( GL_SHADER_STORAGE_BUFFER );
+	glBindBuffer( GL_SHADER_STORAGE_BUFFER, 0 );
+#endif
+
+	if( ShowPerformance )
+	{
+		glFinish( );
+		time1 = omp_get_wtime( );
+		ElapsedTime = time1 - time0;
+		//fprintf( stderr, "ElapsedTime = %g\n", ElapsedTime );
+	}
+
+	glutSetWindow( MainWindow );
+	glutPostRedisplay( );
+}
